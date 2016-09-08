@@ -735,7 +735,7 @@ jsonifyNotice = require('../internal/jsonify_notice');
 
 report = function(notice, opts, promise) {
   var payload, req, url;
-  url = opts.host + "/api/v3/projects/" + opts.projectId + "/create-notice?key=" + opts.projectKey;
+  url = opts.host + "/api/v3/projects/" + opts.projectId + "/notices?key=" + opts.projectKey;
   payload = jsonifyNotice(notice);
   req = new global.XMLHttpRequest();
   req.open('POST', url, true);
@@ -778,7 +778,7 @@ report = function(notice, opts, promise) {
     }
   };
   payload = encodeURIComponent(jsonifyNotice(notice));
-  url = opts.host + "/api/v3/projects/" + opts.projectId + "/create-notice?key=" + opts.projectKey + "&callback=" + cbName + "&body=" + payload;
+  url = opts.host + "/api/v3/projects/" + opts.projectId + "/notices?key=" + opts.projectKey + "&callback=" + cbName + "&body=" + payload;
   document = global.document;
   head = document.getElementsByTagName('head')[0];
   script = document.createElement('script');
